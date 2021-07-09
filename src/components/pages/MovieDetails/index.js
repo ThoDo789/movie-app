@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 import { Button } from "../../Hearder/Nav/headerLabel/HeaderLabelElements";
@@ -25,9 +26,9 @@ const MovieDetail = () => {
   const list = Object.entries(data)[1][1].list;
   const [index, setIndex] = useState(0);
   const [isShow, setIsShow] = useState(false);
+  // const status = useSelector(selectStatus)
 
   const newItem = list.find((item) => item.imageUrl === newId);
-  console.log(newItem.episode.length);
   const qtvEpisole = newItem.episode.length;
   const history = useHistory();
   const backHome = () => {
@@ -36,7 +37,7 @@ const MovieDetail = () => {
   };
   useEffect(() => {
     if (list) console.log(newItem);
-  }, [list]);
+  }, []);
 
   return (
     <DetailWrap>
@@ -64,6 +65,7 @@ const MovieDetail = () => {
               <Button
                 onClick={() => {
                   setIsShow(true);
+                  window.scroll(0,  0);;
                 }}
               >
                 Xem Phim{" "}

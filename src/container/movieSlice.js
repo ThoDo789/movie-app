@@ -8,7 +8,6 @@ export const getIdSlice = createSlice({
   },
   reducers: {
     getId: (state, { payload }) => {
-      console.log(payload);
       state.id = payload;
     },
     getFlatList: (state, { payload }) => {
@@ -17,7 +16,7 @@ export const getIdSlice = createSlice({
   },
 });
 export const selectId = (state) => state.getIdMovie.id;
-export const selectList = (state) => state.getIdMovie.List;
+export const selectList = (state) => state.getIdMovie.list;
 
 export const { getId, getFlatList } = getIdSlice.actions;
 export default getIdSlice.reducer;

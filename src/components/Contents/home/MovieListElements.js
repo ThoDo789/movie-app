@@ -44,7 +44,7 @@ export const Img = styled.img`
   margin-bottom: 10px;
   display: block;
   transition: 0.3s;
-  max-height: 280px;
+  /* max-height: 280px; */
   height: 100%;
   object-fit: cover;
   &:hover {

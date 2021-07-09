@@ -1,31 +1,43 @@
-import React, { useState } from "react";
-import { Wrapper, Row } from "../../../stylesAbstracts";
-import {
-  HeaderWrap,
-  HeaderSearch,
-  HeaderLogo,
-  Img,
-  Title,
-  Input,
-  HeaderContainer,
-  Button,
-  InputWrap,
-} from "./HeaderLabelElements";
-import logo from "../../../../assets/images/logo.png";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { getSearch } from "../../../../container/searchSlice";
+import logo from "../../../../assets/images/logo.png";
+import { getSearch, selectSearchKey } from "../../../../container/searchSlice";
+import { Row, Wrapper } from "../../../stylesAbstracts";
+import {
+  Button,
+   HeaderContainer,
+
+      HeaderLogo,
+
+ 
+ 
+ 
+   HeaderSearch,
+
+
+
+
+      HeaderWrap,
+  Img,
+  Input,
+  InputWrap,
+
+ 
+ 
+ 
+   Title,
+} from "./HeaderLabelElements";
 
 const HeaderLabel = () => {
-  const [search, SetSearch] = useState("");
-  const dispatch = useDispatch()
-  const onHandleSubmit = (e)=>{
-      e.preventDefault();
-      console.log(search)
-      dispatch(getSearch(search))
-      history.push("/search")
-  }
-  const history = useHistory()
+  const key = useSelector(selectSearchKey);
+  const dispatch = useDispatch();
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getSearch(key));
+    history.push("/search");
+  };
+  const history = useHistory();
   return (
     <Wrapper>
       <HeaderContainer>
@@ -37,7 +49,16 @@ const HeaderLabel = () => {
             </HeaderLogo>
             <HeaderSearch onSubmit={onHandleSubmit}>
               <InputWrap>
-                <Input type="text" placeholder="Tên phim..." value={search} name="search" onChange={(e)=>{SetSearch(e.target.value)}}/>
+                <Input
+                  type="text"
+                  placeholder="Tên phim..."
+                  value={key}
+                  name="search"
+                  onChange={(e) => {
+                    dispatch(getSearch(e.target.value));
+                    history.push("/search");
+                  }}
+                />
               </InputWrap>
               <Button>Tìm kiếm</Button>
             </HeaderSearch>

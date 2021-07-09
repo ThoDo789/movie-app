@@ -1,23 +1,24 @@
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getFlatList } from "../../container/movieSlice";
 
-const useCustomList = (list) => {
+
+const useCustomList = (listFilm) => {
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
-  if (list.length !== 0) {
-    let listPhim;
-    let listTotal = [
-      Object.entries(list.phim)[0][1],
-      Object.entries(list.phim)[1][1],
-      Object.entries(list.phim)[2][1],
-      Object.entries(list.phim)[3][1],
-    ];
+ 
+ 
 
+  if (listFilm.length !== 0) {
+    let listPhim;
+    var listTotal = [
+      Object.entries(listFilm.phim)[0][1],
+      Object.entries(listFilm.phim)[1][1],
+      Object.entries(listFilm.phim)[2][1],
+      Object.entries(listFilm.phim)[3][1],
+    ];
+    
     switch (pathname) {
       case "/":
         listPhim = listTotal;
-        dispatch(getFlatList(listPhim));
+       
         break;
 
       case "/phim-bo":
@@ -32,7 +33,7 @@ const useCustomList = (list) => {
       case "/phim-hoat-hinh":
         listPhim = listTotal[3];
         break;
-
+        
       default:
         listPhim = listTotal;
         break;

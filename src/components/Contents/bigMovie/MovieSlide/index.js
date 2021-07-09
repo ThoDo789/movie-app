@@ -1,45 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
+import * as vscIcon from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
+import { getId } from "../../../../container/movieSlice";
+import { selectList, selectStatus } from "../../../../container/slice";
+import useCustomList from "../../../customHooks/CustomList";
 
 import useInterval from "../../../customHooks/CustomInteval";
-import * as vscIcon from "react-icons/vsc";
-import {
-  MovieSlideWrap,
-  MovieList,
-  MovieItem,
+import { BtnSlide,
+   MovieImg,
+    MovieItem, 
+    MovieList, 
+    MovieSlideWrap,
   MovieTitle,
   NextSlide,
-  PrevSlide,
-  MovieImg,
-  BtnSlide,
+  PrevSlide
 } from "./MovieSlideElements";
-import { getId } from "../../../../container/movieSlice";
-import { selectList } from "../../../../container/slice";
-import useCustomList from "../../../customHooks/CustomList";
+import LoadingPage from "../../../pages/loadingPage";
+
 const MovieSlide = () => {
-  let data = JSON.parse(localStorage.getItem("reduxState"));
-
-  const newList = Object.entries(data)[1][1].list;
+ 
   const list = useSelector(selectList);
-  const newListSlice = useCustomList(list);
-  console.log(list, 789789);
-  console.log(newList, "thkth");
+  const status = useSelector(selectStatus)
+  const newList = useCustomList(list);
 
-  useEffect(() => {
-    if (data !== null) {
-      data = newListSlice;
-    }
-  }, [data, newList]);
   const dispatch = useDispatch();
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const NextSlice = () => {
+  const NextSlice = useCallback(() => {
     setCurrentIndex(currentIndex < 5 ? currentIndex + 1 : 0);
-  };
-  const PrevSlice = () => {
+  },[currentIndex]);
+  const PrevSlice = useCallback(() => {
     setCurrentIndex(currentIndex > 0 ? currentIndex - 1 : 5);
-  };
+  },[currentIndex]);
 
   useInterval(() => {
     setCurrentIndex(currentIndex < 5 ? currentIndex + 1 : 0);
@@ -57,7 +50,7 @@ const MovieSlide = () => {
           </NextSlide>
         </BtnSlide>
 
-        {newList && data !== null
+        {newList && status!=="loading"
           ? newList.map((item, index = 5) => {
               return (
                 <MovieItem
@@ -75,7 +68,7 @@ const MovieSlide = () => {
                 </MovieItem>
               );
             })
-          : ""}
+          : <LoadingPage/>}
       </MovieList>
     </MovieSlideWrap>
   );

@@ -100,6 +100,7 @@ export const EpisoleList = styled.div`
   width: 100%;
 
   margin: 0 -5px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 `;
 export const Description = styled.p`

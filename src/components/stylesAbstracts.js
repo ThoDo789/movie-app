@@ -15,10 +15,10 @@ export const Row = styled.div`
 `;
 
 export const ContentWrap = styled.div`
-padding-top: 150px;
-@media screen and (max-width: 992px) {
-  padding-top: 180px;
-}
+  padding-top: 160px;
+  @media screen and (max-width: 992px) {
+    padding-top: 180px;
+  }
 `;
 export const MovieContainer = styled.div`
 display: flex;

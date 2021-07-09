@@ -30,5 +30,5 @@ export const getDataSlice = createSlice({
   },
 });
 export const selectList = (state) => state.getData.list;
-
+export const selectStatus = (state) => state.getData.status;
 export default getDataSlice.reducer;

@@ -9,7 +9,7 @@
 .paginationBttns{
     width: 1200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height:  fit-content;
     margin-top: 20px;
@@ -43,6 +43,9 @@
     justify-content: center;
     align-items: center;
 
+}
+.paginationBttns li {
+    margin-right: 15px;
 }
 .paginationBttns li :not(li:first-child,li:last-child ){
     border-radius: 6px;
