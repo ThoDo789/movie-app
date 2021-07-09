@@ -1,35 +1,31 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectList } from "../../../../container/slice";
 import { Row } from "../../../stylesAbstracts";
 import {
-  NavBar,
-  NavItem,
-  NavList,
   IconArrowDown,
-  NavCategoryItem,
+
+   NavBar,
+  NavBarIcon,
+ 
   NavCategory,
+ 
+  NavCategoryItem,
+  NavCateList,
+
+   NavIcon,
+
+   NavItem,
+  NavList,
 } from "./HeaderNavElements";
 
 const HeaderNav = () => {
-  const [categories, setCategories] = useState({});
+  const list = useSelector(selectList);
+  const [isShow, SetIsShow] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url =
-          "https://api.apify.com/v2/key-value-stores/QubTry45OOCkTyohU/records/LATEST";
-        const res = await axios.get(url);
-        await setCategories(res.data.phim);
-      } catch (err) {
-        console.log("error");
-      }
-    };
-    fetchData();
-  }, []);
-  const newArr = Object.entries(categories);
+  if (list.length !== 0) {
+    const newArr = Object.entries(list.phim);
 
-  if (newArr.length > 0) {
     const newCategories = Array.from(
       new Set(newArr[0][1].map((item) => item.category))
     );
@@ -40,15 +36,18 @@ const HeaderNav = () => {
   return (
     <Row>
       <NavBar>
-        <NavList>
-          <NavItem to="/">Phim bộ</NavItem>
-          <NavItem to="/">Phim lẻ</NavItem>
-          <NavItem to="/"> Phim chiếu rạp</NavItem>
-          <NavItem to="/">Phim hoạt hình</NavItem>
-          <NavItem to="/">
+        <NavIcon onClick={() => SetIsShow(!isShow)}>
+          <NavBarIcon />
+        </NavIcon>
+        <NavList showHide={isShow}>
+          <NavItem to="/phim-bo">Phim bộ</NavItem>
+          <NavItem to="/phim-le">Phim lẻ</NavItem>
+          <NavItem to="/phim-chieu-rap"> Phim chiếu rạp</NavItem>
+          <NavItem to="/phim-hoat-hinh">Phim hoạt hình</NavItem>
+          <NavCateList>
             Thể loại <IconArrowDown />
             <NavCategory>{elmentsCategory}</NavCategory>
-          </NavItem>
+          </NavCateList>
         </NavList>
       </NavBar>
     </Row>

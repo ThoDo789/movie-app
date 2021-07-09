@@ -10,8 +10,14 @@ const GlobalStyle = createGlobalStyle`
      font-family: 'Poppins', sans-serif;
         margin: 0 auto;
      background-color: #2d2d2d;
+    scroll-behavior: smooth;
 
 
+  }
+  @media screen and (max-width: 576px){
+               body,html{
+                   font-size: 12px;
+               }
   }
   ul, li{
       list-style: none;
