@@ -1,5 +1,5 @@
 import React from "react";
-import { MovieContainer, Row } from "../../stylesAbstracts";
+import { MovieContainer, Row } from "../../../constants/stylesAbstracts";
 
 import MovieSlide from "./MovieSlide";
 

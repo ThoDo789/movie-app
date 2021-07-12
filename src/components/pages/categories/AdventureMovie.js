@@ -1,8 +1,8 @@
 import React from "react";
-import List from "../../Contents/home";
 import { ContentWrap } from "../../../constants/stylesAbstracts";
+import List from "../../Contents/home/index";
 
-const FeatureFilm = () => {
+const AdventureMovie = () => {
   return (
     <ContentWrap>
       <List />
@@ -10,4 +10,4 @@ const FeatureFilm = () => {
   );
 };
 
-export default FeatureFilm;
+export default AdventureMovie;

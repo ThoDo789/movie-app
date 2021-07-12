@@ -1,32 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import logo from "../../../../assets/images/logo.png";
-import { getSearch, selectSearchKey } from "../../../../container/searchSlice";
-import { Row, Wrapper } from "../../../stylesAbstracts";
+import logo from "../../../assets/images/logo.png";
+import { getSearch, selectSearchKey } from "../../../container/searchSlice";
+import { Row, Wrapper } from "../../../constants/stylesAbstracts";
 import {
   Button,
-   HeaderContainer,
-
-      HeaderLogo,
-
- 
- 
- 
-   HeaderSearch,
-
-
-
-
-      HeaderWrap,
+  HeaderContainer,
+  HeaderLogo,
+  HeaderSearch,
+  HeaderWrap,
   Img,
   Input,
   InputWrap,
-
- 
- 
- 
-   Title,
+  Title,
 } from "./HeaderLabelElements";
 
 const HeaderLabel = () => {

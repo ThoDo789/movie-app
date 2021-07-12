@@ -16,6 +16,6 @@ export const getSearchSlice = createSlice({
   },
 });
 export const selectSearchKey = (state) => state.getKey.key;
-export const selectFilterList = (state) => state.getKey.newFilterList;
+export const selectFilterList = (state) => state.getKey.key;
 export const { getSearch,getNewFilterList } = getSearchSlice.actions;
 export default getSearchSlice.reducer;

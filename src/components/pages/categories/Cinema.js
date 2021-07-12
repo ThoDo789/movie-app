@@ -1,6 +1,6 @@
 import React from "react";
 import List from "../../Contents/home";
-import { ContentWrap } from "../../stylesAbstracts";
+import { ContentWrap } from "../../../constants/stylesAbstracts";
 
 const Cinema = () => {
   return (

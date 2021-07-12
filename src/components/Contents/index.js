@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentWrap } from "../stylesAbstracts";
+import { ContentWrap } from "../../constants/stylesAbstracts";
 import BigMovie from "./bigMovie";
 import List from "./home";
 

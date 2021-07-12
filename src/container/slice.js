@@ -15,6 +15,7 @@ export const getDataSlice = createSlice({
   initialState: {
     list: [],
     status: null,
+    flatList:   [],
   },
   extraReducers: {
     [getPost.pending]: (state, action) => {
@@ -27,7 +28,9 @@ export const getDataSlice = createSlice({
     [getPost.rejected]: (state) => {
       state.status = "failed";
     },
+   
   },
+ 
 });
 export const selectList = (state) => state.getData.list;
 export const selectStatus = (state) => state.getData.status;

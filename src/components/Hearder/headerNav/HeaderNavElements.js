@@ -1,8 +1,8 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiCaretDown } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
-import { gradient, gradientText } from "../../../stylesAbstracts";
+import { gradient, gradientText } from "../../../constants/stylesAbstracts";
 export const NavBar = styled.div`
   display: flex;
   justify-content: center;
@@ -14,28 +14,26 @@ export const NavBar = styled.div`
 export const NavIcon = styled.div`
   display: none;
 
- @media screen and (max-width: 576px){
- display:block ;
- }
+  @media screen and (max-width: 576px) {
+    display: block;
+  }
 `;
 export const NavBarIcon = styled(FaBars)`
   font-size: 20px;
-  color:#fff;
-
+  color: #fff;
 `;
 export const NavList = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: height  .3s linear;
+  transition: height 0.3s linear;
   width: 100%;
-  
+
   @media screen and (max-width: 576px) {
     flex-direction: column-reverse;
-    
+
     overflow: hidden;
-    height: ${props=>(props.showHide? "100%" : 0)};
-   
+    height: ${(props) => (props.showHide ? "100%" : 0)};
   }
 `;
 export const NavCategory = styled.div`
@@ -52,15 +50,14 @@ export const NavCategory = styled.div`
   height: 0;
   opacity: 0;
   overflow: hidden;
-  @media screen and (max-width: 576px){
-      position: relative;
-      left: 0;
-      height: unset;
-      top:0;
-      height: 0;
-  background-color: transparent;
-    
-    }
+  @media screen and (max-width: 576px) {
+    position: relative;
+    left: 0;
+    height: unset;
+    top: 0;
+    height: 0;
+    background-color: transparent;
+  }
 `;
 export const NavItem = styled(NavLink)`
   color: #fff;
@@ -69,21 +66,20 @@ export const NavItem = styled(NavLink)`
   text-transform: uppercase;
   transition: 0.3s;
   z-index: 99;
-  text-align:center;
+  text-align: center;
   &.active {
     color: transparent;
-  -webkit-background-clip: text;
-  background-image: ${gradientText};
+    -webkit-background-clip: text;
+    background-image: ${gradientText};
   }
-  &.active::before{
+  &.active::before {
     width: 100%;
   }
 
   &:hover {
-    
     color: transparent;
-  -webkit-background-clip: text;
-  background-image: ${gradientText};
+    -webkit-background-clip: text;
+    background-image: ${gradientText};
   }
   cursor: pointer;
   position: relative;
@@ -91,14 +87,12 @@ export const NavItem = styled(NavLink)`
     height: 250px;
     opacity: 1;
     padding: 10px 0;
-    @media screen and (max-width: 576px){
+    @media screen and (max-width: 576px) {
       height: 200px;
       padding: 0;
-    
     }
-    
   }
-  
+
   &::before {
     position: absolute;
     content: "";
@@ -108,12 +102,10 @@ export const NavItem = styled(NavLink)`
     left: 0;
     background-image: ${gradient};
     transition: 0.5s;
-    
   }
-  &:hover::before  {
+  &:hover::before {
     width: 100%;
   }
- 
 `;
 
 export const NavCateList = styled.div`
@@ -123,27 +115,25 @@ export const NavCateList = styled.div`
   text-transform: uppercase;
   transition: 0.3s;
   z-index: 99;
-  text-align:center;
+  text-align: center;
   &.active {
     color: transparent;
-  -webkit-background-clip: text;
-  background-image: ${gradientText};
+    -webkit-background-clip: text;
+    background-image: ${gradientText};
   }
-  &.active::before{
+  &.active::before {
     width: 100%;
   }
   cursor: pointer;
   position: relative;
   &:hover ${NavCategory} {
-    height: 250px;
+    height: 300px;
     opacity: 1;
     padding: 10px 0;
-    @media screen and (max-width: 576px){
+    @media screen and (max-width: 576px) {
       height: 200px;
       padding: 0;
-    
     }
-    
   }
   &::before {
     position: absolute;
@@ -154,27 +144,30 @@ export const NavCateList = styled.div`
     left: 0;
     background-image: ${gradient};
     transition: 0.5s;
-    
   }
-  &:hover::before  {
+  &:hover::before {
     width: 100%;
   }
-
-`
+`;
 
 export const IconArrowDown = styled(BiCaretDown)`
   color: #fff;
   font-size: 16px;
 `;
 
-export const NavCategoryItem = styled.div`
+export const NavCategoryItem = styled(NavLink)`
   color: #fff;
   display: block;
   text-transform: capitalize;
   padding: 5px 15px;
   &:hover {
     color: transparent;
-  -webkit-background-clip: text;
-  background-image: ${gradientText};
+    -webkit-background-clip: text;
+    background-image: ${gradientText};
+  }
+  &.active {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: ${gradientText};
   }
 `;

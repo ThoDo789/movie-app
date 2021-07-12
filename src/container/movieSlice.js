@@ -5,18 +5,17 @@ export const getIdSlice = createSlice({
   initialState: {
     id: null,
     list: null,
+    flatList:[],
   },
   reducers: {
-    getId: (state, { payload }) => {
-      state.id = payload;
-    },
+ 
     getFlatList: (state, { payload }) => {
       state.list = payload;
     },
+   
   },
 });
-export const selectId = (state) => state.getIdMovie.id;
 export const selectList = (state) => state.getIdMovie.list;
 
-export const { getId, getFlatList } = getIdSlice.actions;
+export const {  getFlatList} = getIdSlice.actions;
 export default getIdSlice.reducer;

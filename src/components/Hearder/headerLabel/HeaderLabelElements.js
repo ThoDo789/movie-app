@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styled,{keyframes} from "styled-components";
-import { gradient} from "../../../stylesAbstracts";
+import styled, { keyframes } from "styled-components";
+import { gradient } from "../../../constants/stylesAbstracts";
 const linear = keyframes`
     0%{background-position:left
 
@@ -72,7 +72,6 @@ export const HeaderSearch = styled.form`
 `;
 
 export const InputWrap = styled.div`
-
   height: 50px;
   border-radius: 50px;
   width: 20vw;
@@ -99,14 +98,19 @@ export const Input = styled.input`
   border-radius: 46px;
   height: 46px;
   background-color: #333;
-  color:#fff;
+  color: #fff;
 `;
 export const Button = styled.button`
   outline: none;
   cursor: pointer;
   padding: 0 15px;
   background-color: #ff1493;
-  background-image: linear-gradient(319deg, #ff1493 0%, #0000ff 37%, #ff8c00 100%);
+  background-image: linear-gradient(
+    319deg,
+    #ff1493 0%,
+    #0000ff 37%,
+    #ff8c00 100%
+  );
   border: none;
   border-radius: 5px;
   margin-left: 20px;
@@ -123,7 +127,12 @@ export const Button = styled.button`
     bottom: 25%;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(319deg, #ff1493 0%, #0000ff 37%, #ff8c00 100%);
+    background-image: linear-gradient(
+      319deg,
+      #ff1493 0%,
+      #0000ff 37%,
+      #ff8c00 100%
+    );
     filter: blur(25px);
     transform: translateY(40px) scale(0.9);
     transition: 0.3s;
@@ -132,13 +141,10 @@ export const Button = styled.button`
   }
   &:hover::before {
     display: block;
-    
-
   }
 
-
-  @media screen and (max-width: 576px){
-      font-size: 14px;
-      padding: 0 4px;
+  @media screen and (max-width: 576px) {
+    font-size: 14px;
+    padding: 0 4px;
   }
 `;

@@ -1,13 +1,12 @@
 import React from "react";
-import List from "../../Contents/home";
 import { ContentWrap } from "../../../constants/stylesAbstracts";
 
-const FeatureFilm = () => {
+const PageNotFound = () => {
   return (
     <ContentWrap>
-      <List />
+      <div>this is Page not found 404 Oops </div>
     </ContentWrap>
   );
 };
 
-export default FeatureFilm;
+export default PageNotFound;

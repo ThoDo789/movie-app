@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import useCustomList from "../../customHooks/CustomList";
 import { getPost, selectList } from "../../../container/slice";
-import { Row } from "../../stylesAbstracts";
+import { Row } from "../../../constants/stylesAbstracts";
 import {
   Img,
   MovieContainer,
@@ -14,12 +14,13 @@ import {
   Title,
 } from "./MovieListElements";
 import "./stylePagination.css";
-import { getFlatList, getId } from "../../../container/movieSlice";
+import { getFlatList } from "../../../container/movieSlice";
 
 AOS.init();
 const List = () => {
   const dispatch = useDispatch();
   const list = useSelector(selectList);
+
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 20;
   const newList = useCustomList(list);
@@ -56,8 +57,7 @@ const List = () => {
                   data-aos-delay="50"
                 >
                   <MovieLink
-                    to={`/detail/${item.imageUrl}`}
-                    onClick={() => dispatch(getId(item.imageUrl))}
+                    to={`/detail/${encodeURIComponent(item.imageUrl)}`}
                   >
                     <Img alt={item.title} src={item.imageUrl} />
                     <Title>{item.title}</Title>

@@ -1,4 +1,4 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -21,13 +21,19 @@ export const ContentWrap = styled.div`
   }
 `;
 export const MovieContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 `;
-
+export const HeaderWrapper = styled.div`
+  z-index: 110;
+  background-color: #2d2d2d;
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+`;
 const color = [
   "red",
   "orange",
@@ -39,11 +45,7 @@ const color = [
   "red",
 ];
 
-
-const colorText = [
-  "red",
-  "orange",
-  "yellow","green",]
+const colorText = ["red", "orange", "yellow", "green"];
 export const gradient = `linear-gradient(
   45deg,
  ${color.toString()}
