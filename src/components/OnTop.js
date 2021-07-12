@@ -8,25 +8,25 @@ const TopBlock = styled.div`
   right: 15px;
   height: 50px;
   width: 50px;
-  background: #6c6c6c;
+  background: #ececec;
   border-radius: 50% 50% 0 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 18px;
   transform: rotate(45deg);
 
   &:hover {
     background-color: #fff;
-    font-size: 20px;
+    font-size: 22px;
   }
   &:active {
     bottom: 15px;
   }
 `;
 const IconArrow = styled(FiArrowUpLeft)`
-  color: #333;
+  color: #000;
 `;
 const OnTop = () => {
   return (
