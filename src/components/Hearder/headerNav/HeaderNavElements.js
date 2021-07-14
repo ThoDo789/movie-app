@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiCaretDown } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
+import { RiCloseFill } from "react-icons/ri";
 import { gradient, gradientText } from "../../../constants/stylesAbstracts";
 export const NavBar = styled.div`
   display: flex;
@@ -9,18 +10,33 @@ export const NavBar = styled.div`
 
   width: 100%;
   margin: 10px 0;
-  padding: 0 15px;
+  @media screen and (max-width: 992px){
+  padding: 15px;
+  justify-content: flex-end;
+  margin: 0;
+      height: 46px;
+  }
+  
 `;
 export const NavIcon = styled.div`
   display: none;
 
+
   @media screen and (max-width: 576px) {
-    display: block;
+     display: flex;
+    justify-content: center;
+    align-items: center;;
   }
 `;
 export const NavBarIcon = styled(FaBars)`
   font-size: 20px;
   color: #fff;
+
+`;
+export const NavCloseIcon = styled(RiCloseFill)`
+  font-size: 30px;
+  color: #fff;
+
 `;
 export const NavList = styled.div`
   display: flex;
@@ -30,11 +46,24 @@ export const NavList = styled.div`
   width: 100%;
 
   @media screen and (max-width: 576px) {
-    flex-direction: column-reverse;
-
+    flex-direction: column;
+    justify-content: unset;
     overflow: hidden;
-    height: ${(props) => (props.showHide ? "100%" : 0)};
+    align-items: flex-start;
+    background-color:#2d2d2d;
+    box-shadow: 0 12px 20px #000;
+    padding: 50px 15px;
+    margin-top: -15px;
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    transition: .5s ease-in-out;
+    left: 0;
+    z-index: 1000;
+    transform: ${(props) => (props.showHide ? "translateX(0) skew(0)" : "translateX(-120%) skew(10deg)")};
+
   }
+  
 `;
 export const NavCategory = styled.div`
   background-color: #252323;
@@ -53,7 +82,7 @@ export const NavCategory = styled.div`
   @media screen and (max-width: 576px) {
     position: relative;
     left: 0;
-    height: unset;
+    height: max-content;
     top: 0;
     height: 0;
     background-color: transparent;
@@ -87,12 +116,10 @@ export const NavItem = styled(NavLink)`
     height: 250px;
     opacity: 1;
     padding: 10px 0;
-    @media screen and (max-width: 576px) {
-      height: 200px;
-      padding: 0;
-    }
+  
   }
-
+ 
+  
   &::before {
     position: absolute;
     content: "";
@@ -106,6 +133,9 @@ export const NavItem = styled(NavLink)`
   &:hover::before {
     width: 100%;
   }
+  @media screen and (max-width: 576px) { 
+    text-align: left;
+  }
 `;
 
 export const NavCateList = styled.div`
@@ -115,7 +145,6 @@ export const NavCateList = styled.div`
   text-transform: uppercase;
   transition: 0.3s;
   z-index: 99;
-  text-align: center;
   &.active {
     color: transparent;
     -webkit-background-clip: text;
@@ -131,9 +160,14 @@ export const NavCateList = styled.div`
     opacity: 1;
     padding: 10px 0;
     @media screen and (max-width: 576px) {
-      height: 200px;
+      height:250px;
       padding: 0;
+      text-align: left;
+
     }
+  }
+  &:active{
+    height: 0;
   }
   &::before {
     position: absolute;
@@ -148,6 +182,7 @@ export const NavCateList = styled.div`
   &:hover::before {
     width: 100%;
   }
+
 `;
 
 export const IconArrowDown = styled(BiCaretDown)`
@@ -170,4 +205,5 @@ export const NavCategoryItem = styled(NavLink)`
     -webkit-background-clip: text;
     background-image: ${gradientText};
   }
+
 `;

@@ -10,25 +10,29 @@ import {
   NavIcon,
   NavItem,
   NavList,
+
+  NavCloseIcon
+
 } from "./HeaderNavElements";
 
 const HeaderNav = () => {
   const [isShow, SetIsShow] = useState(false);
+  const [isShowCategory, SetIsShowCategory] = useState(false);
 
   return (
     <Row>
-      <NavBar>
+      <NavBar showHide={isShow}>
         <NavIcon onClick={() => SetIsShow(!isShow)}>
-          <NavBarIcon />
+        { !isShow? <NavBarIcon />:<NavCloseIcon/>}
         </NavIcon>
-        <NavList showHide={isShow}>
+        <NavList showHide={isShow} >
           <NavItem to="/phim-bo">Phim bộ</NavItem>
           <NavItem to="/phim-le">Phim lẻ</NavItem>
           <NavItem to="/phim-chieu-rap"> Phim chiếu rạp</NavItem>
           <NavItem to="/phim-hoat-hinh">Phim hoạt hình</NavItem>
-          <NavCateList>
+          <NavCateList onClick={()=>(SetIsShowCategory(!isShowCategory))} >
             Thể loại <IconArrowDown />
-            <NavCategory>
+            <NavCategory isCategoryShow={isShowCategory}>
               <NavCategoryItem to="/phim-tinh-cam">
                 phim tình cảm
               </NavCategoryItem>

@@ -41,7 +41,7 @@ export const Img = styled.img`
   height: 100%;
   width: auto;
   object-fit: cover;
-  margin-left: 15px;
+
   width: 50px;
   position: relative;
   top: -5px;
@@ -68,6 +68,7 @@ export const HeaderSearch = styled.form`
   @media screen and (max-width: 992px) {
     flex: 0 0 100%;
     max-width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -99,6 +100,7 @@ export const Input = styled.input`
   height: 46px;
   background-color: #333;
   color: #fff;
+
 `;
 export const Button = styled.button`
   outline: none;
@@ -146,5 +148,6 @@ export const Button = styled.button`
   @media screen and (max-width: 576px) {
     font-size: 14px;
     padding: 0 4px;
+    width: 100%;
   }
 `;

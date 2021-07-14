@@ -31,7 +31,7 @@ export const HeaderWrapper = styled.div`
   z-index: 110;
   background-color: #2d2d2d;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
 `;
 const color = [

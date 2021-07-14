@@ -13,6 +13,7 @@ export const MovieList = styled.div`
   width: 100%;
 
   height: 50vh;
+  background-color: #ccc;
   @media screen and (min-width: 1200px) {
     height: 80vh;
   }
@@ -47,6 +48,9 @@ export const MovieTitle = styled.h3`
   bottom: 80px;
   left: 10px;
   z-index: 2;
+  @media screen and (max-width: 576px) {
+    font-size: 25px;
+  }
 `;
 
 export const BtnSlide = styled.div`

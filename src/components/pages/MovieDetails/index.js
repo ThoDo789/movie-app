@@ -32,7 +32,8 @@ const MovieDetail = () => {
   const data = JSON.parse(localStorage.getItem("newList"));
 
   const [index, setIndex] = useState(0);
-  const [isShow, setIsShow] = useState(localStorage.getItem("isShow",false));
+  const [isShow, setIsShow] = useState(localStorage.getItem("isShow"));
+  localStorage.setItem("isShow", isShow === false);
 
   const newItem = data.filter(
     (item) => encodeURIComponent(item.imageUrl) === url
@@ -74,12 +75,15 @@ const MovieDetail = () => {
           </DetailImg>
 
           <DetailContent>
-            <Title>{newItem[0].title}</Title>
+            <Title>
+              
+              {newItem[0].title} &nbsp; Tập: {index +1}
+            
+            </Title>
             <BtnWrap>
               <Button
                 onClick={() => {
                   setIsShow(true);
-                  localStorage.setItem("isShow",isShow)
                   window.scroll(0, 0);
                 }}
               >
@@ -90,7 +94,9 @@ const MovieDetail = () => {
 
             <Episole>
               Số tập: &nbsp;
-              {newItem[0].episode[0].length !== 0? newItem[0].episode[0].length: " 1"}
+              {newItem[0].episode.length !== 0
+                ? newItem[0].episode.length
+                : " 1"}
             </Episole>
             <Category>Thể loại: {newItem[0].category}</Category>
             <Description>

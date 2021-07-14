@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0 auto;
      background-color: #2d2d2d;
     scroll-behavior: smooth;
-
+overflow-x:hidden;
 
   }
   @media screen and (max-width: 576px){

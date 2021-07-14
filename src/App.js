@@ -17,15 +17,18 @@ function App() {
        <Header />
 
        <Switch>
-         
-         {listRoute.map((item,key)=>(
-         <Route key={key} path={item.path} component={item.main} exact={item.exact} />
-
+         {listRoute.map((item, key) => (
+           <Route
+             key={key}
+             path={item.path}
+             component={item.main}
+             exact={item.exact}
+           />
          ))}
        </Switch>
-           
+
        <Footer />
-       <OnTop/>
+       <OnTop />
      </Router>
    );
 }

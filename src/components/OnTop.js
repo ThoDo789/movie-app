@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { gradientText } from "../constants/stylesAbstracts";
 import { FiArrowUpLeft } from "react-icons/fi";
 const TopBlock = styled.div`
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 50px;
+  right: 50px;
   height: 50px;
   width: 50px;
   background: #ececec;
@@ -16,13 +15,18 @@ const TopBlock = styled.div`
   transition: 0.3s;
   font-size: 18px;
   transform: rotate(45deg);
-
+  mix-blend-mode:  difference;
+  z-index: 700;
   &:hover {
     background-color: #fff;
     font-size: 22px;
   }
   &:active {
-    bottom: 15px;
+    bottom: 55px;
+  }
+  @media screen and (max-width: 280px){
+      right: 15px;
+      bottom: 15px;
   }
 `;
 const IconArrow = styled(FiArrowUpLeft)`
